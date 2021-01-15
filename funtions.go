@@ -17,10 +17,14 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
-  fmt.Println("hello world!")
+  var hello = "hello world!"
+  fmt.Println(hello)
+
   fmt.Println(add(42, 13))
+
   a, b := swap("hello", "world")
   fmt.Println(a, b)
+
   x, y := split(10)
   fmt.Println(x,y)
 }
