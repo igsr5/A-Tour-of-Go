@@ -1,6 +1,7 @@
 package main
 
 import "fmt"
+import "math"
 
 func add(x, y int) int {
   return x + y
@@ -17,7 +18,7 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
-  var hello = "hello world!"
+  var hello string = "hello world!"
   fmt.Println(hello)
 
   fmt.Println(add(42, 13))
@@ -27,4 +28,9 @@ func main() {
 
   x, y := split(10)
   fmt.Println(x,y)
+
+  var x1, y1 int = 3, 4
+  var f float64 = math.Sqrt(float64(x1*x1 + y1*y1))
+  var z uint = uint(f)
+  fmt.Println(x1, y1, z)
 }
