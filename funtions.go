@@ -33,4 +33,7 @@ func main() {
   var f float64 = math.Sqrt(float64(x1*x1 + y1*y1))
   var z uint = uint(f)
   fmt.Println(x1, y1, z)
+
+  const PI = 3.14
+  fmt.Println(PI)
 }
