@@ -17,6 +17,14 @@ func split(sum int) (x, y int) {
   return
 }
 
+func sqrt(x float64) float64 {
+  z := 1.0
+  for z*z != x {
+    z -= (z*z - x) / (2 * z)
+  }
+  return z
+}
+
 func main() {
   //var hello string = "hello world!"
   //fmt.Println(hello)
@@ -37,15 +45,18 @@ func main() {
   //const PI = 1 << 1
   //fmt.Println(PI)
 
-  for i := 0; i < 10; i++ {
-    fmt.Println(i)
-    if i % 2 == 0 {
-      fmt.Println("even")
-    }
-  }
+  //for i := 0; i < 10; i++ {
+  //  fmt.Println(i)
+  //  if i % 2 == 0 {
+  //    fmt.Println("even")
+  //  }
+  //}
   //sum := 1
   //for sum < 100 {
   //  sum +=2
   //  fmt.Println(sum)
   //}
+
+  sqrt := sqrt(81)
+  fmt.Println(sqrt)
 }
