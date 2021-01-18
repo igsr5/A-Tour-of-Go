@@ -3,6 +3,7 @@ package main
 import "fmt"
 //import "time"
 //import "math"
+import "golang.org/x/tour/pic"
 
 func add(x, y int) int {
   return x + y
@@ -24,6 +25,10 @@ func sqrt(x float64) float64 {
     z -= (z*z - x) / (2 * z)
   }
   return z
+}
+
+func printSlice(s []int) {
+  fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
 func main() {
@@ -62,17 +67,17 @@ func main() {
   //defer fmt.Println(sqrt)
 
   //fmt.Println("When's Saturday?")
-	//today := time.Now().Weekday()
-	//switch time.Saturday {
-	//case today + 0:
-	//	fmt.Println("Today.")
-	//case today + 1:
-	//	fmt.Println("Tomorrow.")
-	//case today + 2:
-	//	fmt.Println("In two days.")
-	//default:
-	//	fmt.Println("Too far away.")
-	//}
+  //today := time.Now().Weekday()
+  //switch time.Saturday {
+  //case today + 0:
+  //	fmt.Println("Today.")
+  //case today + 1:
+  //	fmt.Println("Tomorrow.")
+  //case today + 2:
+  //	fmt.Println("In two days.")
+  //default:
+  //	fmt.Println("Too far away.")
+  //}
   //i, j := 42, 2701
   //p := &i
   //fmt.Println(*p)
@@ -91,19 +96,38 @@ func main() {
   //v := &Vertex{1, 2}
   //v.X = 4
   //fmt.Println(v.X, v.Y)
-   names := [4]string{
-     "John",
-     "Paul",
-     "George",
-     "Ringo",
-   }
-   fmt.Println(names)
-  
-   a := names[0:2]
-   b := names[1:3]
-   fmt.Println(a, b)
+  //names := [4]string{
+  //  "John",
+  //  "Paul",
+  //  "George",
+  //  "Ringo",
+  //}
+  //fmt.Println(names)
 
-   b[0] = "XXX"
-   fmt.Println(a, b)
-   fmt.Println(names)
+  //a := names[0:2]
+  //b := names[1:3]
+  //fmt.Println(a, b)
+
+  //b[0] = "XXX"
+  //fmt.Println(a, b)
+  //fmt.Println(names)
+
+  //q := []int{2, 3, 5, 7, 11, 13}
+  //fmt.Println(q)
+  //fmt.Println(q[:])
+  //printSlice(q)
+  //q = q[:0]
+  //printSlice(q)
+  // q = q[2:]
+  //printSlice(q)
+
+  a := make([]int, 1)
+  printSlice(a)
+  a = append(a, 1)
+  printSlice(a)
+  a = append(a, 2, 3, 4)
+  printSlice(a)
+   for i, v := range a {
+   fmt.Printf("2**%d = %d\n", i, v)
+ }
 }
