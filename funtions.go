@@ -2,7 +2,12 @@ package main
 
 import "fmt"
 //import "time"
-//import "math"
+import "math"
+
+
+type Vertex struct {
+  X, Y float64
+}
 
 func add(x, y int) int {
   return x + y
@@ -28,6 +33,15 @@ func sqrt(x float64) float64 {
 
 func printSlice(s []int) {
   fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
+}
+
+func (v Vertex) Abs() float64 {
+  return math.Sqrt(v.X*v.X + v.Y*v.Y)
+}
+
+func (v *Vertex) Scale(f float64) {
+  v.X = v.X * f
+  v.Y = v.Y * f
 }
 
 func main() {
@@ -130,19 +144,20 @@ func main() {
   // fmt.Printf("2**%d = %d\n", i, v)
   //}
 
-  type Vertex struct {
-    Lat, Long float64
-  }
 
-  var m = map[string]Vertex {
-    "Google": {434, 53},
-  }
+  
+  //fmt.Println(m["Google"])
+  ////m = make(map[string]Vertex)
+  //fmt.Println(m)
+  //m["Bell"] = Vertex{40.43, 433.34}
+  //fmt.Println(m)
+  //delete(m, "Bell")
+  //fmt.Println(m)
 
-  fmt.Println(m["Google"])
-  //m = make(map[string]Vertex)
-  fmt.Println(m)
-  m["Bell"] = Vertex{40.43, 433.34}
-  fmt.Println(m)
-  delete(m, "Bell")
-  fmt.Println(m)
+  v := Vertex{3, 4}
+  fmt.Println(v.Abs())
+
+  (&v).Scale(3)
+  fmt.Println(v.Abs())
+
 }
