@@ -3,7 +3,6 @@ package main
 import "fmt"
 //import "time"
 //import "math"
-import "golang.org/x/tour/pic"
 
 func add(x, y int) int {
   return x + y
@@ -121,13 +120,29 @@ func main() {
   // q = q[2:]
   //printSlice(q)
 
-  a := make([]int, 1)
-  printSlice(a)
-  a = append(a, 1)
-  printSlice(a)
-  a = append(a, 2, 3, 4)
-  printSlice(a)
-   for i, v := range a {
-   fmt.Printf("2**%d = %d\n", i, v)
- }
+  //a := make([]int, 1)
+  //printSlice(a)
+  //a = append(a, 1)
+  //printSlice(a)
+  //a = append(a, 2, 3, 4)
+  //printSlice(a)
+  // for i, v := range a {
+  // fmt.Printf("2**%d = %d\n", i, v)
+  //}
+
+  type Vertex struct {
+    Lat, Long float64
+  }
+
+  var m = map[string]Vertex {
+    "Google": {434, 53},
+  }
+
+  fmt.Println(m["Google"])
+  //m = make(map[string]Vertex)
+  fmt.Println(m)
+  m["Bell"] = Vertex{40.43, 433.34}
+  fmt.Println(m)
+  delete(m, "Bell")
+  fmt.Println(m)
 }
