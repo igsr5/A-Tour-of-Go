@@ -9,6 +9,18 @@ type Vertex struct {
   X, Y float64
 }
 
+type I interface {
+  M()
+}
+
+type T struct {
+  S string
+}
+
+func (t T) M() {
+  fmt.Println(t.S)
+}
+
 func add(x, y int) int {
   return x + y
 }
@@ -154,10 +166,19 @@ func main() {
   //delete(m, "Bell")
   //fmt.Println(m)
 
-  v := Vertex{3, 4}
-  fmt.Println(v.Abs())
+  //v := Vertex{3, 4}
+  //fmt.Println(v.Abs())
 
-  (&v).Scale(3)
-  fmt.Println(v.Abs())
+  //(&v).Scale(3)
+  //fmt.Println(v.Abs())
 
+  var i I 
+  fmt.Printf("(%v, %T)\n", i, i)
+
+  var h interface{} = "hello"
+
+  s, ok := h.(string)
+  fmt.Println(s, ok)
+  k, ok := h.(float64)
+  fmt.Println(k, ok)
 }
