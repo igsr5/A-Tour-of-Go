@@ -52,7 +52,9 @@ func main() {
 
   go func(){
     for i := 0; i < 10; i++ {
-      fmt.Println(<-c)
+      a, ok := <-c
+      fmt.Println(a)
+      fmt.Println(ok)
     }
     quit<-0
   }()
